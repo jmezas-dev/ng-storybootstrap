@@ -296,7 +296,69 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>\r\n"
+            "templateData": ""
+        },
+        {
+            "name": "Dropdown",
+            "id": "component-Dropdown-e83dab135f9d3d0440463489ea9df1177460b0a176cc4e0dd42cc91060f2f8aec19d4a28d7f573a0ae058ff48b49c7ef78ec7b369cef71c4e06605fd38017bac",
+            "file": "src/app/components/forms/dropdown/dropdown.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dropdown",
+            "styleUrls": [
+                "./dropdown.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dropdown.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "searchText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "searchTextChange",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-dropdown',\r\n  templateUrl: './dropdown.html',\r\n  styleUrls: ['./dropdown.css']\r\n})\r\nexport class Dropdown {\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./dropdown.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n  Carla Monterola\r\n</button>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a class=\"dropdown-item\">Vanessa</a></li>\r\n</ul>\r\n"
         },
         {
             "name": "SearchBoxComponent",
@@ -359,68 +421,6 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<div class=\"w-auto input-group has-validation\">\r\n  <span class=\"input-group-text\">\r\n    <i class=\"bi bi-search\"></i>\r\n  </span>\r\n  <div class=\"form-floating is-invalid\">\r\n    <input type=\"text\" class=\"form-control is-invalid\" id=\"searchBox\" placeholder=\"search...\" required>\r\n    <label for=\"searchBox\">search...</label>\r\n  </div>\r\n  <div class=\"invalid-feedback\">\r\n    Please choose a username.\r\n  </div>\r\n</div>\r\n"
-        },
-        {
-            "name": "SearchDropdownComponent",
-            "id": "component-SearchDropdownComponent-472a18494e2bc052e2835adb15cc4aa534f1dad6117e75352c60f406b92a0c914ace3828ce2dc9d390d53137c97ba16b1138af116d1c7e5109d2eb82af7df035",
-            "file": "src/app/components/forms/searchDropdown/searchdropdown.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-searchdropdown",
-            "styleUrls": [
-                "./searchdropdown.css"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./searchdropdown.html"
-            ],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "searchText",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 9,
-                    "type": "any",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "searchTextChange",
-                    "defaultValue": "new EventEmitter<string>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 10,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-searchdropdown',\r\n  templateUrl: './searchdropdown.html',\r\n  styleUrls: ['./searchdropdown.css']\r\n})\r\nexport class SearchDropdownComponent {\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./searchdropdown.css"
-                }
-            ],
-            "stylesData": "",
-            "extends": [],
-            "templateData": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>\r\n"
         },
         {
             "name": "TableComponent",
@@ -563,10 +563,10 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/components/forms/searchDropdown/searchdropdown.component.ts",
+                "filePath": "src/app/components/forms/dropdown/dropdown.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "SearchDropdownComponent",
+                "name": "Dropdown",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
