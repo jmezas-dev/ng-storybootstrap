@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+// Importar funciones y variables de Bootstrap
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// Importar mixins
+@import "bootstrap/scss/mixins";
+
+// Opcional: Modifica las variables predeterminadas de Bootstrap
+$primary: #007bff;
+$secondary: #6c757d;
+// Agrega más personalizaciones según necesites
+
+// Importar Bootstrap completo
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";

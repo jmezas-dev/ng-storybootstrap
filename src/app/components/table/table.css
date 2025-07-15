@@ -1,0 +1,11 @@
+.col-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f4f4;
+}
+
+.table-head{
+  background: #f5f4f4;
+}
