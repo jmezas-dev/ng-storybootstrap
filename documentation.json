@@ -2,6 +2,101 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "IVacantRow",
+            "id": "interface-IVacantRow-1caf692e1571d18485332f78323bde4cba9330fe8ce6e1c2f25ddcf7335dcb44092cc90bec44eaa71280cfd8806795b904c8d0d49ec1a26be45af45a6a2c4542",
+            "file": "src/app/interfaces/IVacantRow.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface IVacantRow {\n  id:number;\n  ticketNumber:string;\n  vacantName:string;\n  descriptionLink:string;\n  recruiter:string;\n  status:string;\n  recruiterStatus:string;\n  comments:string;\n}\n",
+            "properties": [
+                {
+                    "name": "comments",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "descriptionLink",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "recruiter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "recruiterStatus",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "ticketNumber",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "vacantName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "src/stories/user.ts",
@@ -296,7 +391,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": ""
+            "templateData": "<!--a datepicker inside an input with floating label in bootstrap 5 and html-->\r\n\r\n<input type=\"date\" class=\"form-control w-25\">\r\n\r\n\r\n\r\n"
         },
         {
             "name": "Dropdown",
@@ -358,7 +453,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n  Carla Monterola\r\n</button>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a class=\"dropdown-item\">Vanessa</a></li>\r\n</ul>\r\n"
+            "templateData": "<button class=\"btn dropdown-toggle w-25\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n  Carla Monterola\r\n</button>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a class=\"dropdown-item\">Vanessa</a></li>\r\n</ul>\r\n"
         },
         {
             "name": "SearchBoxComponent",
@@ -420,11 +515,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"w-auto input-group has-validation\">\r\n  <span class=\"input-group-text\">\r\n    <i class=\"bi bi-search\"></i>\r\n  </span>\r\n  <div class=\"form-floating is-invalid\">\r\n    <input type=\"text\" class=\"form-control is-invalid\" id=\"searchBox\" placeholder=\"search...\" required>\r\n    <label for=\"searchBox\">search...</label>\r\n  </div>\r\n  <div class=\"invalid-feedback\">\r\n    Please choose a username.\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"w-25 input-group has-validation\">\r\n  <span class=\"input-group-text\">\r\n    <i class=\"bi bi-search\"></i>\r\n  </span>\r\n  <div class=\"form-floating is-invalid\">\r\n    <input type=\"text\" class=\"form-control is-invalid\" id=\"searchBox\" placeholder=\"search...\" required>\r\n    <label for=\"searchBox\">search...</label>\r\n  </div>\r\n  <div class=\"invalid-feedback\">\r\n    Please choose a username.\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-54736dd81bb32e5417c3f6876dc186805e10c840c2755039fb0e8c47bc5a860e9ac699c8777393b5fee83338335dc84b5eb74421e429130615f80eed3edcff89",
+            "id": "component-TableComponent-b4acdacd0b1d219c6b69d44a5cdf5563076385795313f3b679349ba6f0ab96c497f02e0824aa56769018a761175d24a100252db0bed56b6dd0de3471b055fff2",
             "file": "src/app/components/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -441,28 +536,111 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
-                    "name": "task",
+                    "name": "vacants",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
-                    "type": "any",
-                    "decorators": []
+                    "type": "IVacantRow[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        125
+                    ]
                 }
             ],
-            "outputsClass": [
+            "methodsClass": [
                 {
-                    "name": "onTaskClick",
-                    "defaultValue": "new EventEmitter<any>()",
+                    "name": "updateVacantRecruiter",
+                    "args": [
+                        {
+                            "name": "newVacantRecruiter",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "vacantId",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "EventEmitter"
+                    "jsdoctags": [
+                        {
+                            "name": "newVacantRecruiter",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "vacantId",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateVacantStatus",
+                    "args": [
+                        {
+                            "name": "newVacantStatus",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "vacantId",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "newVacantStatus",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "vacantId",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
-            "propertiesClass": [],
-            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -472,7 +650,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output,EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n    selector: 'app-table',\r\n    templateUrl: './table.html',\r\n    styleUrls: ['./table.css'],\r\n  }\r\n)\r\n\r\nexport default class TableComponent {\r\n  /*\r\n   * The shape of the task object\r\n   */\r\n  @Input() task: any;\r\n\r\n  @Output() onTaskClick = new EventEmitter<any>();\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {IVacantRow} from '../../interfaces/IVacantRow';\r\n\r\n@Component({\r\n    selector: 'app-table',\r\n    templateUrl: './table.html',\r\n    styleUrls: ['./table.css'],\r\n  }\r\n)\r\n\r\nexport default class TableComponent {\r\n  public vacants : IVacantRow[];\r\n\r\n  constructor() {\r\n    this.vacants = [\r\n      {\r\n        id:1,\r\n        ticketNumber:\"Ticket #123\",\r\n        vacantName:\"Desarrollador\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Beatriz Pinzon\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        id:2,\r\n        ticketNumber:\"Ticket #124\",\r\n        vacantName:\"Desarrollado\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Nicolas Mora\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  }\r\n\r\n  updateVacantRecruiter(newVacantRecruiter:string,vacantId:number ){\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiter = newVacantRecruiter;\r\n  }\r\n\r\n  updateVacantStatus(newVacantStatus:string,vacantId:number) {\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiterStatus = newVacantStatus;\r\n\r\n    console.log(foundVacant);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -481,8 +659,16 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
             "extends": [],
-            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        # de Ticket\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Vacante\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Descripcion\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus de reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Comentarios\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n  <tr>\r\n    <td>Ticket 123</td>\r\n    <td>Desarrollador</td>\r\n    <td>\r\n      <i class=\"bi bi-book\"></i>\r\n    </td>\r\n    <td>\r\n      <div class=\"dropdown\">\r\n        <img src=\"\" alt=\"\" width=\"30\" height=\"30\">\r\n        <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n          Carla Monterola\r\n        </button>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a class=\"dropdown-item\">Vanessa</a></li>\r\n        </ul>\r\n      </div>\r\n    </td>\r\n    <td>\r\n      <span class=\"badge badge-pill bg-primary\">activo</span>\r\n    </td>\r\n    <td>\r\n      <div class=\"dropdown\">\r\n        <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n          Asignada\r\n        </button>\r\n        <ul class=\"dropdown-menu\">\r\n          <li><a class=\"dropdown-item\">Asignada</a></li>\r\n          <li><a class=\"dropdown-item\">Sin asignar</a></li>\r\n        </ul>\r\n      </div>\r\n    </td>\r\n    <td>Lorem ipsum dolor sit amet, consectetur</td>\r\n  </tr>\r\n  </tbody>\r\n</table>\r\n"
+            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        # de Ticket\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Vacante\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Descripcion\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus de reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Comentarios\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (vacant of vacants; track vacant.id) {\r\n      <tr>\r\n        <td>{{vacant.ticketNumber}}</td>\r\n        <td>{{vacant.vacantName}} </td>\r\n        <td>\r\n          <a href=\"#\">\r\n            <i class=\"bi bi-book\"></i>\r\n          </a>\r\n        </td>\r\n        <td>\r\n          <div class=\"dropdown\">\r\n            <img src=\"\" alt=\"\" width=\"30\" height=\"30\">\r\n            <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n              {{vacant.recruiter}}\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Beatriz Pinzon',vacant.id)\">Beatriz Pinzon</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Nicolas Mora', vacant.id)\" >Nicolas Mora</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Marcela Valencia',vacant.id)\" >Marcela Valencia</a></li>\r\n            </ul>\r\n          </div>\r\n        </td>\r\n        <td>\r\n          <span class=\"badge badge-pill bg-primary\">{{vacant.status}}</span>\r\n        </td>\r\n        <td>\r\n          <div class=\"dropdown\">\r\n            <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n              {{vacant.recruiterStatus}}\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantStatus('Asignada',vacant.id)\">Asignada</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantStatus('Sin Asignar', vacant.id)\">Sin asignar</a></li>\r\n            </ul>\r\n          </div>\r\n        </td>\r\n        <td>{{vacant.comments}}</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
         }
     ],
     "modules": [],
@@ -522,7 +708,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 10,
+        "count": 9,
         "status": "low",
         "files": [
             {
@@ -586,7 +772,16 @@
                 "linktype": "component",
                 "name": "TableComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/interfaces/IVacantRow.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IVacantRow",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

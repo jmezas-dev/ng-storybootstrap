@@ -46,38 +46,44 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Ticket 123</td>
-    <td>Desarrollador</td>
-    <td>
-      <i class="bi bi-book"></i>
-    </td>
-    <td>
-      <div class="dropdown">
-        <img src="" alt="" width="30" height="30">
-        <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
-          Carla Monterola
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item">Vanessa</a></li>
-        </ul>
-      </div>
-    </td>
-    <td>
-      <span class="badge badge-pill bg-primary">activo</span>
-    </td>
-    <td>
-      <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
-          Asignada
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item">Asignada</a></li>
-          <li><a class="dropdown-item">Sin asignar</a></li>
-        </ul>
-      </div>
-    </td>
-    <td>Lorem ipsum dolor sit amet, consectetur</td>
-  </tr>
+    @for (vacant of vacants; track vacant.id) {
+      <tr>
+        <td>{{vacant.ticketNumber}}</td>
+        <td>{{vacant.vacantName}} </td>
+        <td>
+          <a href="#">
+            <i class="bi bi-book"></i>
+          </a>
+        </td>
+        <td>
+          <div class="dropdown">
+            <img src="" alt="" width="30" height="30">
+            <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
+              {{vacant.recruiter}}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Beatriz Pinzon',vacant.id)">Beatriz Pinzon</a></li>
+              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Nicolas Mora', vacant.id)" >Nicolas Mora</a></li>
+              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Marcela Valencia',vacant.id)" >Marcela Valencia</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          <span class="badge badge-pill bg-primary">{{vacant.status}}</span>
+        </td>
+        <td>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
+              {{vacant.recruiterStatus}}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="updateVacantStatus('Asignada',vacant.id)">Asignada</a></li>
+              <li><a class="dropdown-item" (click)="updateVacantStatus('Sin Asignar', vacant.id)">Sin asignar</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>{{vacant.comments}}</td>
+      </tr>
+    }
   </tbody>
 </table>
