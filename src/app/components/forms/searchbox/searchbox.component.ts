@@ -6,8 +6,14 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
   styleUrls: ['./searchbox.css'],
 })
 
-export default class SearchBoxComponent {
-  /*Shape of the searchbox object*/
+export default class SearchBox {
+  public inputLabel : string = "Search";
+
   @Input() searchText: any;
   @Output() search = new EventEmitter<string>();
+
+  constructor() {
+    this.inputLabel = "Buscar";
+    this.searchText = "";
+  }
 }

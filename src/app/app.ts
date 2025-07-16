@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ButtonComponent} from './components/button/button.component';
-import TableComponent from './components/table/table.component';
+import {VacanciesView} from './layout/vacancies-view/vacancies-view';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ButtonComponent, TableComponent],
+  imports: [RouterOutlet,VacanciesView],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

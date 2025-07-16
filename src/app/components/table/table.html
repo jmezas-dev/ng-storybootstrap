@@ -3,44 +3,44 @@
   <tr>
     <th scope="col" class="table-head">
       <div class="col-head">
-        # de Ticket
-        <i class="bi bi-arrow-up"></i>
+        {{filterOrders[0].columnLabel}}
+        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[0])"></i>
       </div>
     </th>
     <th scope="col" class="table-head">
      <div class="col-head">
-       Vacante
-       <i class="bi bi-arrow-up"></i>
+       {{filterOrders[1].columnLabel}}
+       <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[1])"></i>
      </div>
     </th>
     <th scope="col" class="table-head">
      <div class="col-head">
-       Descripcion
-       <i class="bi bi-arrow-up"></i>
+       {{filterOrders[2].columnLabel}}
+       <i class="bi bi-arrow-up" (click)="updateFilterOrder($event,filterOrders[2])"></i>
      </div>
     </th>
     <th scope="col" class="table-head">
       <div class="col-head">
-        Reclutador
-        <i class="bi bi-arrow-up"></i>
+        {{filterOrders[3].columnLabel}}
+        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[3])"></i>
       </div>
     </th>
     <th scope="col" class="table-head">
       <div class="col-head">
-        Estatus
-        <i class="bi bi-arrow-up"></i>
+        {{filterOrders[4].columnLabel}}
+        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[4])"></i>
       </div>
     </th>
     <th scope="col" class="table-head">
       <div class="col-head">
-        Estatus de reclutador
-        <i class="bi bi-arrow-up"></i>
+        {{filterOrders[5].columnLabel}}
+        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[5])"></i>
       </div>
     </th>
     <th scope="col" class="table-head">
       <div class="col-head">
-        Comentarios
-        <i class="bi bi-arrow-up"></i>
+        {{filterOrders[6].columnLabel}}
+        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event,filterOrders[6])"></i>
       </div>
     </th>
   </tr>
@@ -56,33 +56,19 @@
           </a>
         </td>
         <td>
-          <div class="dropdown">
-            <img src="" alt="" width="30" height="30">
-            <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
-              {{vacant.recruiter}}
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Beatriz Pinzon',vacant.id)">Beatriz Pinzon</a></li>
-              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Nicolas Mora', vacant.id)" >Nicolas Mora</a></li>
-              <li><a class="dropdown-item" (click)="updateVacantRecruiter('Marcela Valencia',vacant.id)" >Marcela Valencia</a></li>
-            </ul>
-          </div>
+          <app-dropdown></app-dropdown>
         </td>
         <td>
           <span class="badge badge-pill bg-primary">{{vacant.status}}</span>
         </td>
         <td>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropDownMenuButton" data-bs-toggle="dropdown">
-              {{vacant.recruiterStatus}}
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" (click)="updateVacantStatus('Asignada',vacant.id)">Asignada</a></li>
-              <li><a class="dropdown-item" (click)="updateVacantStatus('Sin Asignar', vacant.id)">Sin asignar</a></li>
-            </ul>
-          </div>
+          <app-dropdown></app-dropdown>
         </td>
         <td>{{vacant.comments}}</td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="7">No hay vacantes</td>
       </tr>
     }
   </tbody>

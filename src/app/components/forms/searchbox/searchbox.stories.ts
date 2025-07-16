@@ -1,14 +1,14 @@
 import type {Meta, StoryObj} from '@storybook/angular';
-import SearchBoxComponent from './searchbox.component';
+import SearchBox from './searchbox.component';
 
-const meta: Meta<SearchBoxComponent> = {
+const meta: Meta<SearchBox> = {
   title: 'Components/SearchBox',
-  component: SearchBoxComponent,
+  component: SearchBox,
   excludeStories: /.*Data$/,
   tags: ['autodocs']
 };
 
-type Story = StoryObj<SearchBoxComponent>;
+type Story = StoryObj<SearchBox>;
 
 export const Default = {
   args:{

@@ -130,7 +130,7 @@
     "components": [
         {
             "name": "App",
-            "id": "component-App-00c547ba50dbe3f5b4bdfe2b4c27a643e085e9c9f9684e5ba5a650c2ea4925b36c23130ea9d3690301bbdd6fbc7cd5f1dfe5bb1c2e2d2291dc77daade99eaabc",
+            "id": "component-App-93e5bf4107507bc4dced6e18d35cf895aad508e043f50cb8aab695e46b806b097392b50e394560349874fcf487c680784e99010d320d155116a10d1103c99875",
             "file": "src/app/app.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -157,7 +157,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 11,
                     "modifierKind": [
                         124,
                         148
@@ -175,24 +175,19 @@
                     "name": "RouterOutlet"
                 },
                 {
-                    "name": "ButtonComponent",
-                    "type": "component"
-                },
-                {
-                    "name": "TableComponent",
-                    "type": "component"
+                    "name": "VacanciesView"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport {ButtonComponent} from './components/button/button.component';\nimport TableComponent from './components/table/table.component';\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet,ButtonComponent, TableComponent],\n  templateUrl: './app.html',\n  styleUrl: './app.scss'\n})\nexport class App {\n  protected readonly title = signal('angular-20');\n}\n",
+            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\nimport {VacanciesView} from './layout/vacancies-view/vacancies-view';\n@Component({\n  selector: 'app-root',\n  imports: [RouterOutlet,VacanciesView],\n  templateUrl: './app.html',\n  styleUrl: './app.scss'\n})\nexport class App {\n  protected readonly title = signal('angular-20');\n}\n",
             "styleUrl": "./app.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<h1>Hello World</h1>\n<app-button [primary]=\"true\" [label]=\"'Button'\"></app-button>\n<app-table></app-table>\n<router-outlet />\n"
+            "templateData": "<app-vacancies-view></app-vacancies-view>\n<router-outlet/>\n"
         },
         {
             "name": "ButtonComponent",
@@ -333,7 +328,7 @@
         },
         {
             "name": "DatepickerComponent",
-            "id": "component-DatepickerComponent-7f3433ec5d4b2cbf92be54c2396a0f5d24eea660ca6172856b56b458fb4ebd165b040886311a92b11d29ef9489a7bbb8c35f157b26dfd5fec9121b27297c9d89",
+            "id": "component-DatepickerComponent-0ceb4758738be542adbcfc753903e1e292b699c6ed159b1bd81bf88fe929861f608a0a0546b7fd2a3da1dd7c395aa0fa567f1a9b4f424b99b3ab7a49e7307180",
             "file": "src/app/components/forms/datepicker/datepicker.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -355,7 +350,7 @@
                     "name": "date",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "any",
                     "decorators": []
                 }
@@ -366,7 +361,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "EventEmitter"
                 }
             ],
@@ -376,12 +371,12 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
+            "standalone": true,
             "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-datepicker',\r\n  templateUrl: './datepicker.html',\r\n  styleUrls: ['./datepicker.css'],\r\n})\r\n\r\nexport default class DatepickerComponent {\r\n  @Input() date: any;\r\n  @Output() dateChange = new EventEmitter<string>();\r\n}\r\n",
+            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-datepicker',\r\n  standalone: true,\r\n  templateUrl: './datepicker.html',\r\n  styleUrls: ['./datepicker.css'],\r\n})\r\n\r\nexport default class DatepickerComponent {\r\n  @Input() date: any;\r\n  @Output() dateChange = new EventEmitter<string>();\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -391,11 +386,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<!--a datepicker inside an input with floating label in bootstrap 5 and html-->\r\n\r\n<input type=\"date\" class=\"form-control w-25\">\r\n\r\n\r\n\r\n"
+            "templateData": "<div class=\"form-floating\">\r\n  <input type=\"date\" class=\"form-control\" id=\"floatingInput\" placeholder=\"name@example.com\">\r\n  <label for=\"floatingInput\">Email address</label>\r\n</div>\r\n"
         },
         {
             "name": "Dropdown",
-            "id": "component-Dropdown-e83dab135f9d3d0440463489ea9df1177460b0a176cc4e0dd42cc91060f2f8aec19d4a28d7f573a0ae058ff48b49c7ef78ec7b369cef71c4e06605fd38017bac",
+            "id": "component-Dropdown-094612d203daacdfd7450b94be8c9ed52e9bd69b5ab3177a15d8cda68ea9d268515c74d8a024aaa32f6d52390a509c2a549445af1d25e9eec52c02c65b8d52c1",
             "file": "src/app/components/forms/dropdown/dropdown.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -417,7 +412,7 @@
                     "name": "searchText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 10,
                     "type": "any",
                     "decorators": []
                 }
@@ -428,7 +423,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "EventEmitter"
                 }
             ],
@@ -438,12 +433,12 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
+            "standalone": true,
             "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-dropdown',\r\n  templateUrl: './dropdown.html',\r\n  styleUrls: ['./dropdown.css']\r\n})\r\nexport class Dropdown {\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
+            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-dropdown',\r\n  templateUrl: './dropdown.html',\r\n  styleUrls: ['./dropdown.css'],\r\n  standalone: true,\r\n})\r\nexport class Dropdown {\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -453,11 +448,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<button class=\"btn dropdown-toggle w-25\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n  Carla Monterola\r\n</button>\r\n<ul class=\"dropdown-menu\">\r\n  <li><a class=\"dropdown-item\">Vanessa</a></li>\r\n</ul>\r\n"
+            "templateData": "<div class=\"form-floating\">\r\n  <select class=\"form-select\" id=\"floatingSelect\" aria-label=\"Floating label select example\">\r\n    <option selected>Beatriz Pinzon</option>\r\n    <option value=\"1\">Armando Mendoza</option>\r\n    <option value=\"2\">Mario Calderon</option>\r\n    <option value=\"3\">Marcela Valencia</option>\r\n  </select>\r\n  <label for=\"floatingSelect\">Works with selects</label>\r\n</div>\r\n"
         },
         {
-            "name": "SearchBoxComponent",
-            "id": "component-SearchBoxComponent-4ceb3c7ae80999b95895d72a9374dd2e0209a66b7d49fda6c5a16878628fb0a65eb8a9b0cab1723ab283c2db1352db6c09ded16cbd33c6518349baec06336b84",
+            "name": "SearchBox",
+            "id": "component-SearchBox-eafbd8494dbfbd8ee5eb80cc8b3f92036c6e9b7171a552b8c1de4473a00ab5fd6f3f601bcb797f1d59010f82466055ad12dbd876a430ff7d2a6c91b21ca9aa06",
             "file": "src/app/components/forms/searchbox/searchbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -479,7 +474,7 @@
                     "name": "searchText",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "any",
                     "decorators": []
                 }
@@ -490,11 +485,26 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "inputLabel",
+                    "defaultValue": "\"Search\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -505,7 +515,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-searchbox',\r\n  templateUrl: './searchbox.html',\r\n  styleUrls: ['./searchbox.css'],\r\n})\r\n\r\nexport default class SearchBoxComponent {\r\n  /*Shape of the searchbox object*/\r\n  @Input() searchText: any;\r\n  @Output() search = new EventEmitter<string>();\r\n}\r\n",
+            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-searchbox',\r\n  templateUrl: './searchbox.html',\r\n  styleUrls: ['./searchbox.css'],\r\n})\r\n\r\nexport default class SearchBox {\r\n  public inputLabel : string = \"Search\";\r\n\r\n  @Input() searchText: any;\r\n  @Output() search = new EventEmitter<string>();\r\n\r\n  constructor() {\r\n    this.inputLabel = \"Buscar\";\r\n    this.searchText = \"\";\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -514,12 +524,20 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
             "extends": [],
-            "templateData": "<div class=\"w-25 input-group has-validation\">\r\n  <span class=\"input-group-text\">\r\n    <i class=\"bi bi-search\"></i>\r\n  </span>\r\n  <div class=\"form-floating is-invalid\">\r\n    <input type=\"text\" class=\"form-control is-invalid\" id=\"searchBox\" placeholder=\"search...\" required>\r\n    <label for=\"searchBox\">search...</label>\r\n  </div>\r\n  <div class=\"invalid-feedback\">\r\n    Please choose a username.\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"input-group\">\r\n  <span class=\"input-group-text\">\r\n    <span class=\"bi bi-search\"></span>\r\n  </span>\r\n  <div class=\"form-floating\">\r\n    <input type=\"text\" class=\"form-control\" id=\"floatingInputGroup1\" [placeholder]=\"inputLabel\">\r\n    <label for=\"floatingInputGroup1\">{{inputLabel}}</label>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-b4acdacd0b1d219c6b69d44a5cdf5563076385795313f3b679349ba6f0ab96c497f02e0824aa56769018a761175d24a100252db0bed56b6dd0de3471b055fff2",
+            "id": "component-TableComponent-ea289da4f43c32b1caef61e1bd64013076470f03e9551876786bf28600a62e538debb3bcf3da328a50bfc10e12fb01a4cbc7660764ed0e3398200c4a18d7ec63",
             "file": "src/app/components/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -540,6 +558,19 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "filterOrders",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
                     "name": "vacants",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -547,13 +578,56 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 16,
                     "modifierKind": [
                         125
                     ]
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "updateFilterOrder",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "filterObject",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 94,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "filterObject",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "updateVacantRecruiter",
                     "args": [
@@ -573,7 +647,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 82,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -616,7 +690,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 88,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -645,12 +719,16 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "Dropdown"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport {IVacantRow} from '../../interfaces/IVacantRow';\r\n\r\n@Component({\r\n    selector: 'app-table',\r\n    templateUrl: './table.html',\r\n    styleUrls: ['./table.css'],\r\n  }\r\n)\r\n\r\nexport default class TableComponent {\r\n  public vacants : IVacantRow[];\r\n\r\n  constructor() {\r\n    this.vacants = [\r\n      {\r\n        id:1,\r\n        ticketNumber:\"Ticket #123\",\r\n        vacantName:\"Desarrollador\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Beatriz Pinzon\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        id:2,\r\n        ticketNumber:\"Ticket #124\",\r\n        vacantName:\"Desarrollado\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Nicolas Mora\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  }\r\n\r\n  updateVacantRecruiter(newVacantRecruiter:string,vacantId:number ){\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiter = newVacantRecruiter;\r\n  }\r\n\r\n  updateVacantStatus(newVacantStatus:string,vacantId:number) {\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiterStatus = newVacantStatus;\r\n\r\n    console.log(foundVacant);\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport {IVacantRow} from '../../interfaces/IVacantRow';\r\nimport {Dropdown} from '../forms/dropdown/dropdown';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  standalone: true,\r\n  templateUrl: './table.html',\r\n  imports: [\r\n    Dropdown\r\n  ],\r\n  styleUrls: ['./table.css']\r\n})\r\n\r\nexport default class TableComponent {\r\n  public vacants : IVacantRow[];\r\n  public filterOrders : any[];\r\n\r\n  constructor() {\r\n    this.vacants = [\r\n      {\r\n        id:1,\r\n        ticketNumber:\"Ticket #123\",\r\n        vacantName:\"Desarrollador\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Beatriz Pinzon\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        id:2,\r\n        ticketNumber:\"Ticket #124\",\r\n        vacantName:\"Desarrollado\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Nicolas Mora\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n\r\n    this.filterOrders = [\r\n      {\r\n        columnName:\"ticketNo\",\r\n        columnLabel:\"# de Ticket\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"vacantName\",\r\n        columnLabel:\"Vacante\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"descriptionLink\",\r\n        columnLabel: \"Descripcion\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"recruiterName\",\r\n        columnLabel:\"Reclutador\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"status\",\r\n        columnLabel:\"Estado\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"recruiterStatus\",\r\n        columnLabel:\"Estado del Reclutador\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"comments\",\r\n        columnLabel:\"Comentarios\",\r\n        value:\"ascendant\"\r\n      }\r\n    ]\r\n  }\r\n\r\n  updateVacantRecruiter(newVacantRecruiter:string,vacantId:number ){\r\n    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiter = newVacantRecruiter;\r\n  }\r\n\r\n  updateVacantStatus(newVacantStatus:string,vacantId:number) {\r\n    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiterStatus = newVacantStatus;\r\n  }\r\n\r\n  updateFilterOrder(event:MouseEvent, filterObject:any) {\r\n    //TODO: Implement a service to update the table\r\n\r\n    let item = event.currentTarget as HTMLElement;\r\n\r\n    let updatedFilter = filterObject;\r\n\r\n    updatedFilter.value = updatedFilter.value === \"ascendant\" ? \"descendant\" : \"ascendant\";\r\n    console.log(updatedFilter);\r\n\r\n    if(item.classList.contains(\"bi-arrow-up\")){\r\n      item.classList.remove(\"bi-arrow-up\");\r\n      item.classList.add(\"bi-arrow-down\");\r\n    } else {\r\n      item.classList.remove(\"bi-arrow-down\");\r\n      item.classList.add(\"bi-arrow-up\");\r\n    }\r\n  }\r\n}\r\n\r\n/* HELP!\r\n*  I was kidnapped and the boss is forcing me\r\n*  to use angular and bootstrap 💀 */\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -665,10 +743,63 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 17
             },
             "extends": [],
-            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        # de Ticket\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Vacante\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       Descripcion\r\n       <i class=\"bi bi-arrow-up\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Estatus de reclutador\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        Comentarios\r\n        <i class=\"bi bi-arrow-up\"></i>\r\n      </div>\r\n    </th>\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (vacant of vacants; track vacant.id) {\r\n      <tr>\r\n        <td>{{vacant.ticketNumber}}</td>\r\n        <td>{{vacant.vacantName}} </td>\r\n        <td>\r\n          <a href=\"#\">\r\n            <i class=\"bi bi-book\"></i>\r\n          </a>\r\n        </td>\r\n        <td>\r\n          <div class=\"dropdown\">\r\n            <img src=\"\" alt=\"\" width=\"30\" height=\"30\">\r\n            <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n              {{vacant.recruiter}}\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Beatriz Pinzon',vacant.id)\">Beatriz Pinzon</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Nicolas Mora', vacant.id)\" >Nicolas Mora</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantRecruiter('Marcela Valencia',vacant.id)\" >Marcela Valencia</a></li>\r\n            </ul>\r\n          </div>\r\n        </td>\r\n        <td>\r\n          <span class=\"badge badge-pill bg-primary\">{{vacant.status}}</span>\r\n        </td>\r\n        <td>\r\n          <div class=\"dropdown\">\r\n            <button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropDownMenuButton\" data-bs-toggle=\"dropdown\">\r\n              {{vacant.recruiterStatus}}\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantStatus('Asignada',vacant.id)\">Asignada</a></li>\r\n              <li><a class=\"dropdown-item\" (click)=\"updateVacantStatus('Sin Asignar', vacant.id)\">Sin asignar</a></li>\r\n            </ul>\r\n          </div>\r\n        </td>\r\n        <td>{{vacant.comments}}</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
+            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[0].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[0])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       {{filterOrders[1].columnLabel}}\r\n       <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[1])\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       {{filterOrders[2].columnLabel}}\r\n       <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event,filterOrders[2])\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[3].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[3])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[4].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[4])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[5].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[5])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[6].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event,filterOrders[6])\"></i>\r\n      </div>\r\n    </th>\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (vacant of vacants; track vacant.id) {\r\n      <tr>\r\n        <td>{{vacant.ticketNumber}}</td>\r\n        <td>{{vacant.vacantName}} </td>\r\n        <td>\r\n          <a href=\"#\">\r\n            <i class=\"bi bi-book\"></i>\r\n          </a>\r\n        </td>\r\n        <td>\r\n          <app-dropdown></app-dropdown>\r\n        </td>\r\n        <td>\r\n          <span class=\"badge badge-pill bg-primary\">{{vacant.status}}</span>\r\n        </td>\r\n        <td>\r\n          <app-dropdown></app-dropdown>\r\n        </td>\r\n        <td>{{vacant.comments}}</td>\r\n      </tr>\r\n    } @empty {\r\n      <tr>\r\n        <td colspan=\"7\">No hay vacantes</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
+        },
+        {
+            "name": "VacanciesView",
+            "id": "component-VacanciesView-f038f2e2e8dccf2db315df83a0de97a1022bd1b5398fcd23aebe1b258113efd7b9482dc240e51fddf5e80e0edfb4849d6551950b8b5584dc64450261d26e8ce3",
+            "file": "src/app/layout/vacancies-view/vacancies-view.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-vacancies-view",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./vacancies-view.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "SearchBox"
+                },
+                {
+                    "name": "DatepickerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "Dropdown"
+                },
+                {
+                    "name": "TableComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport SearchBox from '../../components/forms/searchbox/searchbox.component';\nimport DatepickerComponent from '../../components/forms/datepicker/datepicker.component';\nimport {Dropdown} from '../../components/forms/dropdown/dropdown';\nimport TableComponent from '../../components/table/table.component';\n\n@Component({\n  selector: 'app-vacancies-view',\n  imports: [SearchBox,DatepickerComponent,Dropdown,TableComponent],\n  templateUrl: './vacancies-view.html',\n  styleUrl: './vacancies-view.scss'\n})\nexport class VacanciesView {\n\n}\n",
+            "styleUrl": "./vacancies-view.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"container\">\n  <app-searchbox></app-searchbox>\n  <app-datepicker></app-datepicker>\n  <app-datepicker></app-datepicker>\n  <app-dropdown></app-dropdown>\n  <app-dropdown></app-dropdown>\n</div>\n<div class=\"container\">\n  <app-table></app-table>\n</div>\n"
         }
     ],
     "modules": [],
@@ -708,7 +839,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 9,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -761,9 +892,9 @@
                 "filePath": "src/app/components/forms/searchbox/searchbox.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "SearchBoxComponent",
+                "name": "SearchBox",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -772,7 +903,7 @@
                 "linktype": "component",
                 "name": "TableComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -782,6 +913,15 @@
                 "name": "IVacantRow",
                 "coveragePercent": 0,
                 "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/vacancies-view.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "VacanciesView",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
