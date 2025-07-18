@@ -1,9 +1,14 @@
 <div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Beatriz Pinzon</option>
-    <option value="1">Armando Mendoza</option>
-    <option value="2">Mario Calderon</option>
-    <option value="3">Marcela Valencia</option>
+  <select class="form-select"  aria-label="Floating label select example">
+    @for (option of options; track option.value) {
+      @if (option.value === selectedOption){
+        <option value="{{option.value}}" selected>{{option.label}} </option>
+      } @else {
+        <option value="{{option.value}}">
+          {{option.label}}
+        </option>
+      }
+    }
   </select>
-  <label for="floatingSelect">Works with selects</label>
+  <label for="floatingSelect">{{inputLabel}}</label>
 </div>

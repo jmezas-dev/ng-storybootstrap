@@ -1,5 +1,4 @@
 import type {Meta, StoryObj} from '@storybook/angular';
-
 import TableComponent from './table.component';
 
 const meta: Meta<TableComponent> = {

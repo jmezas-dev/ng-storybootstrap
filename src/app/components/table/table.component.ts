@@ -1,94 +1,25 @@
-import { Component } from '@angular/core';
-import {IVacantRow} from '../../interfaces/IVacantRow';
-import {Dropdown} from '../forms/dropdown/dropdown';
+import {Component, Input} from '@angular/core';
+import {NgComponentOutlet} from '@angular/common';
+import {CustomTd} from './custom-td/custom-td';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  templateUrl: './table.html',
+  templateUrl:'./table.html',
   imports: [
-    Dropdown
+    CustomTd,
+    CustomTd
   ],
   styleUrls: ['./table.css']
 })
 
 export default class TableComponent {
-  public vacants : IVacantRow[];
-  public filterOrders : any[];
+  @Input() rows : any[] = [];
+  @Input() columns : any[] = [];
+  @Input() rowComponent : any = null;
+  @Input() customTds : any[] = []
 
   constructor() {
-    this.vacants = [
-      {
-        id:1,
-        ticketNumber:"Ticket #123",
-        vacantName:"Desarrollador",
-        descriptionLink:"link",
-        recruiter:"Beatriz Pinzon",
-        status:"Activo",
-        recruiterStatus:"Asignada",
-        comments:"lorem ipsum dolor sit amet consectetur adipisicing elit."
-      },
-      {
-        id:2,
-        ticketNumber:"Ticket #124",
-        vacantName:"Desarrollado",
-        descriptionLink:"link",
-        recruiter:"Nicolas Mora",
-        status:"Activo",
-        recruiterStatus:"Asignada",
-        comments:"lorem ipsum dolor sit amet consectetur adipisicing elit."
-      }
-    ]
-
-    this.filterOrders = [
-      {
-        columnName:"ticketNo",
-        columnLabel:"# de Ticket",
-        value:"ascendant"
-      },
-      {
-        columnName:"vacantName",
-        columnLabel:"Vacante",
-        value:"ascendant"
-      },
-      {
-        columnName:"descriptionLink",
-        columnLabel: "Descripcion",
-        value:"ascendant"
-      },
-      {
-        columnName:"recruiterName",
-        columnLabel:"Reclutador",
-        value:"ascendant"
-      },
-      {
-        columnName:"status",
-        columnLabel:"Estado",
-        value:"ascendant"
-      },
-      {
-        columnName:"recruiterStatus",
-        columnLabel:"Estado del Reclutador",
-        value:"ascendant"
-      },
-      {
-        columnName:"comments",
-        columnLabel:"Comentarios",
-        value:"ascendant"
-      }
-    ]
-  }
-
-  updateVacantRecruiter(newVacantRecruiter:string,vacantId:number ){
-    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD
-    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);
-    foundVacant[0].recruiter = newVacantRecruiter;
-  }
-
-  updateVacantStatus(newVacantStatus:string,vacantId:number) {
-    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD
-    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);
-    foundVacant[0].recruiterStatus = newVacantStatus;
   }
 
   updateFilterOrder(event:MouseEvent, filterObject:any) {
@@ -99,7 +30,6 @@ export default class TableComponent {
     let updatedFilter = filterObject;
 
     updatedFilter.value = updatedFilter.value === "ascendant" ? "descendant" : "ascendant";
-    console.log(updatedFilter);
 
     if(item.classList.contains("bi-arrow-up")){
       item.classList.remove("bi-arrow-up");

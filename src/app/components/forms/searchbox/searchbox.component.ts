@@ -4,16 +4,17 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
   selector: 'app-searchbox',
   templateUrl: './searchbox.html',
   styleUrls: ['./searchbox.css'],
+  standalone: true,
 })
 
 export default class SearchBox {
-  public inputLabel : string = "Search";
+  @Input() inputLabel : string = '';
+  @Input() searchText: any='';
 
-  @Input() searchText: any;
   @Output() search = new EventEmitter<string>();
 
   constructor() {
-    this.inputLabel = "Buscar";
-    this.searchText = "";
+    this.searchText;
+    this.inputLabel;
   }
 }

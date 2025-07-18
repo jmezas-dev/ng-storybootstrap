@@ -1,10 +1,10 @@
-export interface IVacantRow {
+export interface IVacant {
   id:number;
   ticketNumber:string;
   vacantName:string;
   descriptionLink:string;
-  recruiter:string;
+  recruiter:any;
   status:string;
-  recruiterStatus:string;
+  recruiterStatus:any;
   comments:string;
 }

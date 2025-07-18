@@ -8,6 +8,10 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
 })
 
 export default class DatepickerComponent {
+  @Input() inputLabel : string = '';
   @Input() date: any;
   @Output() dateChange = new EventEmitter<string>();
+
+  constructor() {
+  }
 }

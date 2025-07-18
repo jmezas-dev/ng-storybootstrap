@@ -1,70 +1,27 @@
 <table class="table">
   <thead>
   <tr>
-    <th scope="col" class="table-head">
-      <div class="col-head">
-        {{filterOrders[0].columnLabel}}
-        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[0])"></i>
-      </div>
-    </th>
-    <th scope="col" class="table-head">
-     <div class="col-head">
-       {{filterOrders[1].columnLabel}}
-       <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[1])"></i>
-     </div>
-    </th>
-    <th scope="col" class="table-head">
-     <div class="col-head">
-       {{filterOrders[2].columnLabel}}
-       <i class="bi bi-arrow-up" (click)="updateFilterOrder($event,filterOrders[2])"></i>
-     </div>
-    </th>
-    <th scope="col" class="table-head">
-      <div class="col-head">
-        {{filterOrders[3].columnLabel}}
-        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[3])"></i>
-      </div>
-    </th>
-    <th scope="col" class="table-head">
-      <div class="col-head">
-        {{filterOrders[4].columnLabel}}
-        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[4])"></i>
-      </div>
-    </th>
-    <th scope="col" class="table-head">
-      <div class="col-head">
-        {{filterOrders[5].columnLabel}}
-        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, filterOrders[5])"></i>
-      </div>
-    </th>
-    <th scope="col" class="table-head">
-      <div class="col-head">
-        {{filterOrders[6].columnLabel}}
-        <i class="bi bi-arrow-up" (click)="updateFilterOrder($event,filterOrders[6])"></i>
-      </div>
-    </th>
+    @for (column of columns; track column.columnName) {
+      <th scope="col" class="table-head">
+        <div class="col-head">
+          {{column.columnLabel}}
+          <i class="bi bi-arrow-up" (click)="updateFilterOrder($event, column[0])"></i>
+        </div>
+      </th>
+    }
   </tr>
   </thead>
   <tbody>
-    @for (vacant of vacants; track vacant.id) {
+    @for (row of rows; track row.id) {
       <tr>
-        <td>{{vacant.ticketNumber}}</td>
-        <td>{{vacant.vacantName}} </td>
-        <td>
-          <a href="#">
-            <i class="bi bi-book"></i>
-          </a>
-        </td>
-        <td>
-          <app-dropdown></app-dropdown>
-        </td>
-        <td>
-          <span class="badge badge-pill bg-primary">{{vacant.status}}</span>
-        </td>
-        <td>
-          <app-dropdown></app-dropdown>
-        </td>
-        <td>{{vacant.comments}}</td>
+        @for (column of columns; track column.columnName) {
+          <td>
+            <app-custom-td
+              [template]="customTds[column.id-1]"
+              [attributes]="{content:rows[row.id-1][column.columnName]}">
+            </app-custom-td>
+          </td>
+        }
       </tr>
     } @empty {
       <tr>
