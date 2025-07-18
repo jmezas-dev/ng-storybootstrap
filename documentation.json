@@ -2,13 +2,13 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "IVacantRow",
-            "id": "interface-IVacantRow-1caf692e1571d18485332f78323bde4cba9330fe8ce6e1c2f25ddcf7335dcb44092cc90bec44eaa71280cfd8806795b904c8d0d49ec1a26be45af45a6a2c4542",
+            "name": "IVacant",
+            "id": "interface-IVacant-520907557e18a823a283e7732ddbbe397082a27b6d9bf27fa20e32ccee642e17929903f4cd38b6b9624b80b56ec97db2b4eea26b27c1c22fbbd7098000f6ab9c",
             "file": "src/app/interfaces/IVacantRow.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface IVacantRow {\n  id:number;\n  ticketNumber:string;\n  vacantName:string;\n  descriptionLink:string;\n  recruiter:string;\n  status:string;\n  recruiterStatus:string;\n  comments:string;\n}\n",
+            "sourceCode": "export interface IVacant {\n  id:number;\n  ticketNumber:string;\n  vacantName:string;\n  descriptionLink:string;\n  recruiter:any;\n  status:string;\n  recruiterStatus:any;\n  comments:string;\n}\n",
             "properties": [
                 {
                     "name": "comments",
@@ -44,7 +44,7 @@
                     "name": "recruiter",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "any",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
@@ -54,7 +54,7 @@
                     "name": "recruiterStatus",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "any",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
@@ -188,6 +188,54 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<app-vacancies-view></app-vacancies-view>\n<router-outlet/>\n"
+        },
+        {
+            "name": "BadgeTd",
+            "id": "component-BadgeTd-f638ada3dbbc02176538af6c075be223b20046279aeecb4a909e90da6ba678663ff0228eb91ca44ab0a352af53c2112ac25776755474bd15035d8ae1127d8049",
+            "file": "src/app/layout/vacancies-view/badge-td/badge-td.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-badge-td",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./badge-td.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "attributes",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'app-badge-td',\n  imports: [],\n  templateUrl: './badge-td.html',\n  styleUrl: './badge-td.scss'\n})\nexport class BadgeTd {\n  @Input() attributes:any = {};\n}\n",
+            "styleUrl": "./badge-td.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<td>\n  <span class=\"badge badge-pill bg-primary\">{{attributes.content}}</span>\n</td>\n"
         },
         {
             "name": "ButtonComponent",
@@ -327,8 +375,70 @@
             "templateData": "<button\r\n  type=\"button\"\r\n  (click)=\"onClick.emit($event)\"\r\n  [ngClass]=\"classes\"\r\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n>\r\n  {{ label }}\r\n</button>\r\n"
         },
         {
+            "name": "CustomTd",
+            "id": "component-CustomTd-627076c885eb147facc4cc0ad752fc8803b800dde2280bc95fbeaeab222a58850f6c9b07bd19bb5c864664e4bbaad9167a94f76ea583f56547a7414b5ad5e455",
+            "file": "src/app/components/table/custom-td/custom-td.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-custom-td",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./custom-td.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "attributes",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "template",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "NgComponentOutlet",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component,Input} from '@angular/core';\nimport {NgComponentOutlet} from '@angular/common';\n\n@Component({\n  selector: 'app-custom-td',\n  templateUrl: './custom-td.html',\n  imports: [\n    NgComponentOutlet\n  ],\n  styleUrl: './custom-td.scss'\n})\n\nexport class CustomTd {\n  @Input() template : any = null;\n  @Input() attributes : any = {};\n}\n",
+            "styleUrl": "./custom-td.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<ng-container *ngComponentOutlet=\"template; inputs:{attributes}\"></ng-container>\n"
+        },
+        {
             "name": "DatepickerComponent",
-            "id": "component-DatepickerComponent-0ceb4758738be542adbcfc753903e1e292b699c6ed159b1bd81bf88fe929861f608a0a0546b7fd2a3da1dd7c395aa0fa567f1a9b4f424b99b3ab7a49e7307180",
+            "id": "component-DatepickerComponent-a1f9bec5dd4d56246dc7d6a1b500a5da0b7399003fef57d51cd6db2383cc4f83e4270bfad8a312f169c4b017488f0e2b71b125baef3432d764bd8f0fc0e18cd3",
             "file": "src/app/components/forms/datepicker/datepicker.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -350,8 +460,17 @@
                     "name": "date",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "inputLabel",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -361,7 +480,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "EventEmitter"
                 }
             ],
@@ -376,7 +495,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-datepicker',\r\n  standalone: true,\r\n  templateUrl: './datepicker.html',\r\n  styleUrls: ['./datepicker.css'],\r\n})\r\n\r\nexport default class DatepickerComponent {\r\n  @Input() date: any;\r\n  @Output() dateChange = new EventEmitter<string>();\r\n}\r\n",
+            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-datepicker',\r\n  standalone: true,\r\n  templateUrl: './datepicker.html',\r\n  styleUrls: ['./datepicker.css'],\r\n})\r\n\r\nexport default class DatepickerComponent {\r\n  @Input() inputLabel : string = '';\r\n  @Input() date: any;\r\n  @Output() dateChange = new EventEmitter<string>();\r\n\r\n  constructor() {\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -385,12 +504,20 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
             "extends": [],
-            "templateData": "<div class=\"form-floating\">\r\n  <input type=\"date\" class=\"form-control\" id=\"floatingInput\" placeholder=\"name@example.com\">\r\n  <label for=\"floatingInput\">Email address</label>\r\n</div>\r\n"
+            "templateData": "<div class=\"form-floating\">\r\n  <input type=\"date\" class=\"form-control\" id=\"floatingInput\" placeholder=\"15/11/1997\">\r\n  <label for=\"floatingInput\">{{inputLabel}}</label>\r\n</div>\r\n"
         },
         {
             "name": "Dropdown",
-            "id": "component-Dropdown-094612d203daacdfd7450b94be8c9ed52e9bd69b5ab3177a15d8cda68ea9d268515c74d8a024aaa32f6d52390a509c2a549445af1d25e9eec52c02c65b8d52c1",
+            "id": "component-Dropdown-0b48deaaf5150ba162b141bc70edcaacc6bfdb0119130d2683547b53c2f3d1f72bf1917faf39d8b6f3a1a2bc7451032dd0bff192902c4e48244bae5e7ef6c73b",
             "file": "src/app/components/forms/dropdown/dropdown.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -409,10 +536,36 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "searchText",
+                    "name": "inputLabel",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "any[]",
+                    "decorators": []
+                },
+                {
+                    "name": "searchText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "selectedOption",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
                     "type": "any",
                     "decorators": []
                 }
@@ -423,7 +576,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 15,
                     "type": "EventEmitter"
                 }
             ],
@@ -438,7 +591,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-dropdown',\r\n  templateUrl: './dropdown.html',\r\n  styleUrls: ['./dropdown.css'],\r\n  standalone: true,\r\n})\r\nexport class Dropdown {\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
+            "sourceCode": "import {Component, Input,Output, EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-dropdown',\r\n  templateUrl: './dropdown.html',\r\n  styleUrls: ['./dropdown.css'],\r\n  standalone: true,\r\n})\r\nexport class Dropdown {\r\n  @Input() inputLabel : string = '';\r\n  @Input() options: any[] = [];\r\n  @Input() selectedOption: any;\r\n\r\n  @Input() searchText: any;\r\n  @Output() searchTextChange = new EventEmitter<string>();\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -448,11 +601,111 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"form-floating\">\r\n  <select class=\"form-select\" id=\"floatingSelect\" aria-label=\"Floating label select example\">\r\n    <option selected>Beatriz Pinzon</option>\r\n    <option value=\"1\">Armando Mendoza</option>\r\n    <option value=\"2\">Mario Calderon</option>\r\n    <option value=\"3\">Marcela Valencia</option>\r\n  </select>\r\n  <label for=\"floatingSelect\">Works with selects</label>\r\n</div>\r\n"
+            "templateData": "<div class=\"form-floating\">\r\n  <select class=\"form-select\"  aria-label=\"Floating label select example\">\r\n    @for (option of options; track option.value) {\r\n      @if (option.value === selectedOption){\r\n        <option value=\"{{option.value}}\" selected>{{option.label}} </option>\r\n      } @else {\r\n        <option value=\"{{option.value}}\">\r\n          {{option.label}}\r\n        </option>\r\n      }\r\n    }\r\n  </select>\r\n  <label for=\"floatingSelect\">{{inputLabel}}</label>\r\n</div>\r\n"
+        },
+        {
+            "name": "DropDownTd",
+            "id": "component-DropDownTd-64456c6d8a500505adc820dfe9aa3ed8074b45ccc4ad0f30ba428a1d4202ec4b70ca787b3e969d67fb1f5ea252b636625a17c54c154dc9f0ddbcd3bed582c7d2",
+            "file": "src/app/layout/vacancies-view/drop-down-td/drop-down-td.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-drop-down-td",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./drop-down-td.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "attributes",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "Dropdown"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {Dropdown} from '../../../components/forms/dropdown/dropdown';\n\n@Component({\n  selector: 'app-drop-down-td',\n  imports: [\n    Dropdown\n  ],\n  templateUrl: './drop-down-td.html',\n  styleUrl: './drop-down-td.scss'\n})\nexport class DropDownTd {\n  @Input() attributes:any = {};\n}\n",
+            "styleUrl": "./drop-down-td.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-dropdown\n  [inputLabel]=\"attributes.content.fieldName\"\n  [options]=\"attributes.content.options\"\n  [selectedOption]=\"attributes.content.selected\"\n>\n</app-dropdown>\n"
+        },
+        {
+            "name": "IconLinkTd",
+            "id": "component-IconLinkTd-1fdf71e5b484d3f11c3a5f23db469eb7eaedba2ca1d1ed5e5784f83613c4c4b0bb4ef1c20c5b734a922bde8b9c2c617e7b008dc523d9f1214fa5efdcb12a870b",
+            "file": "src/app/layout/vacancies-view/icon-link-td/icon-link-td.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-icon-link-td",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./icon-link-td.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "attributes",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'app-icon-link-td',\n  imports: [],\n  templateUrl: './icon-link-td.html',\n  styleUrl: './icon-link-td.scss'\n})\nexport class IconLinkTd {\n  @Input() attributes:any = {};\n}\n",
+            "styleUrl": "./icon-link-td.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<td>\n  <a href=\"{{attributes.content}}\">\n    <i class=\"bi bi-book\"></i>\n  </a>\n</td>\n"
         },
         {
             "name": "SearchBox",
-            "id": "component-SearchBox-9bacc695488413719a8b4e29691c343d62a587b3311701a616ad11a60d811418b0df89afe2e86819a49ed743ab62742fa1d4b09001653c53aa66ed9ed75d2668",
+            "id": "component-SearchBox-44797d9d209565a3ab3be3bdde7b9538ffe832b55b8258d2c0a6c6389f005f20197097d39cbe9d9ca0d9d184305fe5755af84fcf2686df6ebdfbf12a7354bc7e",
             "file": "src/app/components/forms/searchbox/searchbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -472,6 +725,7 @@
             "inputsClass": [
                 {
                     "name": "inputLabel",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
@@ -480,6 +734,7 @@
                 },
                 {
                     "name": "searchText",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 12,
@@ -508,7 +763,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-searchbox',\r\n  templateUrl: './searchbox.html',\r\n  styleUrls: ['./searchbox.css'],\r\n  standalone: true,\r\n})\r\n\r\nexport default class SearchBox {\r\n  @Input() inputLabel : string;\r\n  @Input() searchText: any;\r\n\r\n  @Output() search = new EventEmitter<string>();\r\n\r\n  constructor(props:any) {\r\n    this.searchText = props.inputLabel;\r\n    this.inputLabel = props.searchText;\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import {Component,Input,Output,EventEmitter} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-searchbox',\r\n  templateUrl: './searchbox.html',\r\n  styleUrls: ['./searchbox.css'],\r\n  standalone: true,\r\n})\r\n\r\nexport default class SearchBox {\r\n  @Input() inputLabel : string = '';\r\n  @Input() searchText: any='';\r\n\r\n  @Output() search = new EventEmitter<string>();\r\n\r\n  constructor() {\r\n    this.searchText;\r\n    this.inputLabel;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -522,33 +777,15 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "props",
-                        "type": "any",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 14,
-                "jsdoctags": [
-                    {
-                        "name": "props",
-                        "type": "any",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
+                "args": [],
+                "line": 14
             },
             "extends": [],
             "templateData": "<div class=\"input-group\">\r\n  <span class=\"input-group-text\">\r\n    <span class=\"bi bi-search\"></span>\r\n  </span>\r\n  <div class=\"form-floating\">\r\n    <input type=\"text\" class=\"form-control\" id=\"floatingInputGroup1\" [placeholder]=\"inputLabel\">\r\n    <label for=\"floatingInputGroup1\">{{inputLabel}}</label>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-ea289da4f43c32b1caef61e1bd64013076470f03e9551876786bf28600a62e538debb3bcf3da328a50bfc10e12fb01a4cbc7660764ed0e3398200c4a18d7ec63",
+            "id": "component-TableComponent-be5e50a6a3c28e9ac87f784bcb2f0c6fce3cde2dd4cef1e94a776fe027cbcfe892b21e3806bb581a1f7a49dada6000de0c72adfa14e425065901566ae6238a56",
             "file": "src/app/components/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -565,36 +802,46 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
+            "inputsClass": [
                 {
-                    "name": "filterOrders",
+                    "name": "columns",
+                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "line": 18,
                     "type": "any[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "modifierKind": [
-                        125
-                    ]
+                    "decorators": []
                 },
                 {
-                    "name": "vacants",
+                    "name": "customTds",
+                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "IVacantRow[]",
-                    "indexKey": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "modifierKind": [
-                        125
-                    ]
+                    "line": 20,
+                    "type": "any[]",
+                    "decorators": []
+                },
+                {
+                    "name": "rowComponent",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "rows",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "any[]",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [
                 {
                     "name": "updateFilterOrder",
@@ -615,7 +862,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 94,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -638,92 +885,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "updateVacantRecruiter",
-                    "args": [
-                        {
-                            "name": "newVacantRecruiter",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "vacantId",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 82,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "newVacantRecruiter",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "vacantId",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "updateVacantStatus",
-                    "args": [
-                        {
-                            "name": "newVacantStatus",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "vacantId",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 88,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "newVacantStatus",
-                            "type": "string",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "vacantId",
-                            "type": "number",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "deprecated": false,
@@ -733,13 +894,16 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "Dropdown"
+                    "name": "CustomTd"
+                },
+                {
+                    "name": "CustomTd"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport {IVacantRow} from '../../interfaces/IVacantRow';\r\nimport {Dropdown} from '../forms/dropdown/dropdown';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  standalone: true,\r\n  templateUrl: './table.html',\r\n  imports: [\r\n    Dropdown\r\n  ],\r\n  styleUrls: ['./table.css']\r\n})\r\n\r\nexport default class TableComponent {\r\n  public vacants : IVacantRow[];\r\n  public filterOrders : any[];\r\n\r\n  constructor() {\r\n    this.vacants = [\r\n      {\r\n        id:1,\r\n        ticketNumber:\"Ticket #123\",\r\n        vacantName:\"Desarrollador\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Beatriz Pinzon\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        id:2,\r\n        ticketNumber:\"Ticket #124\",\r\n        vacantName:\"Desarrollado\",\r\n        descriptionLink:\"link\",\r\n        recruiter:\"Nicolas Mora\",\r\n        status:\"Activo\",\r\n        recruiterStatus:\"Asignada\",\r\n        comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n\r\n    this.filterOrders = [\r\n      {\r\n        columnName:\"ticketNo\",\r\n        columnLabel:\"# de Ticket\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"vacantName\",\r\n        columnLabel:\"Vacante\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"descriptionLink\",\r\n        columnLabel: \"Descripcion\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"recruiterName\",\r\n        columnLabel:\"Reclutador\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"status\",\r\n        columnLabel:\"Estado\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"recruiterStatus\",\r\n        columnLabel:\"Estado del Reclutador\",\r\n        value:\"ascendant\"\r\n      },\r\n      {\r\n        columnName:\"comments\",\r\n        columnLabel:\"Comentarios\",\r\n        value:\"ascendant\"\r\n      }\r\n    ]\r\n  }\r\n\r\n  updateVacantRecruiter(newVacantRecruiter:string,vacantId:number ){\r\n    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiter = newVacantRecruiter;\r\n  }\r\n\r\n  updateVacantStatus(newVacantStatus:string,vacantId:number) {\r\n    //TODO: REPLACE THIS CODE FOR A LOGIC THAT CONSUMES A SERVICE TO UPDATE THE FIELD\r\n    let foundVacant = this.vacants.filter(vacant => vacant.id === vacantId);\r\n    foundVacant[0].recruiterStatus = newVacantStatus;\r\n  }\r\n\r\n  updateFilterOrder(event:MouseEvent, filterObject:any) {\r\n    //TODO: Implement a service to update the table\r\n\r\n    let item = event.currentTarget as HTMLElement;\r\n\r\n    let updatedFilter = filterObject;\r\n\r\n    updatedFilter.value = updatedFilter.value === \"ascendant\" ? \"descendant\" : \"ascendant\";\r\n    console.log(updatedFilter);\r\n\r\n    if(item.classList.contains(\"bi-arrow-up\")){\r\n      item.classList.remove(\"bi-arrow-up\");\r\n      item.classList.add(\"bi-arrow-down\");\r\n    } else {\r\n      item.classList.remove(\"bi-arrow-down\");\r\n      item.classList.add(\"bi-arrow-up\");\r\n    }\r\n  }\r\n}\r\n\r\n/* HELP!\r\n*  I was kidnapped and the boss is forcing me\r\n*  to use angular and bootstrap 💀 */\r\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\r\nimport {NgComponentOutlet} from '@angular/common';\r\nimport {CustomTd} from './custom-td/custom-td';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  standalone: true,\r\n  templateUrl:'./table.html',\r\n  imports: [\r\n    CustomTd,\r\n    CustomTd\r\n  ],\r\n  styleUrls: ['./table.css']\r\n})\r\n\r\nexport default class TableComponent {\r\n  @Input() rows : any[] = [];\r\n  @Input() columns : any[] = [];\r\n  @Input() rowComponent : any = null;\r\n  @Input() customTds : any[] = []\r\n\r\n  constructor() {\r\n  }\r\n\r\n  updateFilterOrder(event:MouseEvent, filterObject:any) {\r\n    //TODO: Implement a service to update the table\r\n\r\n    let item = event.currentTarget as HTMLElement;\r\n\r\n    let updatedFilter = filterObject;\r\n\r\n    updatedFilter.value = updatedFilter.value === \"ascendant\" ? \"descendant\" : \"ascendant\";\r\n\r\n    if(item.classList.contains(\"bi-arrow-up\")){\r\n      item.classList.remove(\"bi-arrow-up\");\r\n      item.classList.add(\"bi-arrow-down\");\r\n    } else {\r\n      item.classList.remove(\"bi-arrow-down\");\r\n      item.classList.add(\"bi-arrow-up\");\r\n    }\r\n  }\r\n}\r\n\r\n/* HELP!\r\n*  I was kidnapped and the boss is forcing me\r\n*  to use angular and bootstrap 💀 */\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -754,14 +918,62 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 17
+                "line": 20
             },
             "extends": [],
-            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[0].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[0])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       {{filterOrders[1].columnLabel}}\r\n       <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[1])\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n     <div class=\"col-head\">\r\n       {{filterOrders[2].columnLabel}}\r\n       <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event,filterOrders[2])\"></i>\r\n     </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[3].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[3])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[4].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[4])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[5].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, filterOrders[5])\"></i>\r\n      </div>\r\n    </th>\r\n    <th scope=\"col\" class=\"table-head\">\r\n      <div class=\"col-head\">\r\n        {{filterOrders[6].columnLabel}}\r\n        <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event,filterOrders[6])\"></i>\r\n      </div>\r\n    </th>\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (vacant of vacants; track vacant.id) {\r\n      <tr>\r\n        <td [class.bg-opacity-100]=\"vacant.id>2\">{{vacant.ticketNumber}}</td>\r\n        <td>{{vacant.vacantName}}</td>\r\n        <td>\r\n          <a href=\"#\">\r\n            <i class=\"bi bi-book\"></i>\r\n          </a>\r\n        </td>\r\n        <td>\r\n          <app-dropdown></app-dropdown>\r\n        </td>\r\n        <td>\r\n          <span class=\"badge badge-pill bg-primary\">{{vacant.status}}</span>\r\n        </td>\r\n        <td>\r\n          <app-dropdown></app-dropdown>\r\n        </td>\r\n        <td>{{vacant.comments}}</td>\r\n      </tr>\r\n    } @empty {\r\n      <tr>\r\n        <td colspan=\"7\">No hay vacantes</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
+            "templateData": "<table class=\"table\">\r\n  <thead>\r\n  <tr>\r\n    @for (column of columns; track column.columnName) {\r\n      <th scope=\"col\" class=\"table-head\">\r\n        <div class=\"col-head\">\r\n          {{column.columnLabel}}\r\n          <i class=\"bi bi-arrow-up\" (click)=\"updateFilterOrder($event, column[0])\"></i>\r\n        </div>\r\n      </th>\r\n    }\r\n  </tr>\r\n  </thead>\r\n  <tbody>\r\n    @for (row of rows; track row.id) {\r\n      <tr>\r\n        @for (column of columns; track column.columnName) {\r\n          <td>\r\n            <app-custom-td\r\n              [template]=\"customTds[column.id-1]\"\r\n              [attributes]=\"{content:rows[row.id-1][column.columnName]}\">\r\n            </app-custom-td>\r\n          </td>\r\n        }\r\n      </tr>\r\n    } @empty {\r\n      <tr>\r\n        <td colspan=\"7\">No hay vacantes</td>\r\n      </tr>\r\n    }\r\n  </tbody>\r\n</table>\r\n"
+        },
+        {
+            "name": "TextTd",
+            "id": "component-TextTd-26cd4195ae158520682a18168bd78e871f4f665daf3863243fa4f1e51a47a43b323ded9524a9ff803543c14701032ac70380d444a8f8fe797750b3152b4b5b0c",
+            "file": "src/app/layout/vacancies-view/textTd/textTd.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-textTd",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./textTd.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "attributes",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\n\n@Component({\n  selector: 'app-textTd',\n  templateUrl: './textTd.html',\n  styleUrl: './textTd.scss'\n})\n\nexport class TextTd {\n  @Input() attributes:any = {};\n}\n",
+            "styleUrl": "./textTd.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "{{attributes.content}}\n"
         },
         {
             "name": "VacanciesView",
-            "id": "component-VacanciesView-249925999ef8333756cf2730981d3c486689e7ec22aa9d382a5b5a07efaf37887e9716ca22f09617219ae4a5f7357a2555affb44c96adcb31327b7a76d72eeaf",
+            "id": "component-VacanciesView-d134ef9573f3d89eadb46ddccc5a5e668b6ac9f41c74676e7d00d5465bc4a3e1a6d63f4e0048546c1ce58ef2709f3e121c114b8411969f51800c2fa1afc25627",
             "file": "src/app/layout/vacancies-view/vacancies-view.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -778,7 +990,102 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "clientOptions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "recruiters",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "statusOptions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "tdComponents",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "vacancies",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IVacant[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "vacancyCols",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "vacancyRow",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -799,18 +1106,30 @@
                 {
                     "name": "TableComponent",
                     "type": "component"
+                },
+                {
+                    "name": "TableComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport SearchBox from '../../components/forms/searchbox/searchbox.component';\nimport DatepickerComponent from '../../components/forms/datepicker/datepicker.component';\nimport {Dropdown} from '../../components/forms/dropdown/dropdown';\nimport TableComponent from '../../components/table/table.component';\n\n@Component({\n  selector: 'app-vacancies-view',\n  imports: [SearchBox,DatepickerComponent,Dropdown,TableComponent],\n  templateUrl: './vacancies-view.html',\n  styleUrl: './vacancies-view.scss'\n})\n\nexport class VacanciesView {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport SearchBox from '../../components/forms/searchbox/searchbox.component';\nimport DatepickerComponent from '../../components/forms/datepicker/datepicker.component';\nimport {Dropdown} from '../../components/forms/dropdown/dropdown';\nimport TableComponent from '../../components/table/table.component';\nimport {IVacant} from '../../interfaces/IVacantRow';\nimport {TextTd} from './textTd/textTd';\nimport {IconLinkTd} from './icon-link-td/icon-link-td';\nimport {DropDownTd} from './drop-down-td/drop-down-td';\nimport {BadgeTd} from './badge-td/badge-td';\n\n@Component({\n  selector: 'app-vacancies-view',\n  imports: [SearchBox, DatepickerComponent, Dropdown, TableComponent, TableComponent],\n  templateUrl: './vacancies-view.html',\n  styleUrl: './vacancies-view.scss'\n})\n\nexport class VacanciesView {\n  public statusOptions:any[];\n  public clientOptions : any[];\n  public vacancies : IVacant[];\n  public vacancyCols : any = [];\n  public vacancyRow : any = null;\n  public tdComponents : any = [];\n  public recruiters : any[];\n\n  constructor() {\n    this.tdComponents = [\n      TextTd,\n      TextTd,\n      IconLinkTd,\n      DropDownTd,\n      BadgeTd,\n      DropDownTd,\n      TextTd\n    ];\n\n    this.statusOptions = [\n      {\n        value: 1,\n        label: \"Activo\"\n      },\n      {\n        value: 2,\n        label: \"Inactivo\"\n      }\n    ];\n\n    this.clientOptions = [\n      {\n        value: \"1\",\n        label: \"Beatriz Pinzon\"\n      },\n      {\n        value: \"2\",\n        label: \"Nicolas Mora\"\n      },\n      {\n        value: \"3\",\n        label: \"Hugo Lombardi\"\n      },\n      {\n        value: \"4\",\n        label: \"Marcela Valencia\"\n      },\n      {\n        value: \"5\",\n        label: \"Mario Calderon\"\n      }\n    ];\n\n    this.recruiters = [\n      {\n        value: 1,\n        label: \"Beatriz Pinzon\"\n      },\n      {\n        value: 2,\n        label: \"Nicolas Mora\"\n      }\n    ];\n\n    this.vacancies = [\n      {\n          id:1,\n          ticketNumber:\"Ticket #123\",\n          vacantName:\"Desarrollador\",\n          descriptionLink:\"https://www.google.com\",\n          recruiter:{\n            fieldName:\"\",\n            selected:1,\n            options:this.recruiters\n          },\n          status:\"Activo\",\n          recruiterStatus:{\n            fieldName:\"\",\n            selected:1,\n            options:this.statusOptions\n          },\n          comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\n      },\n      {\n          id:2,\n          ticketNumber:\"Ticket #124\",\n          vacantName:\"Desarrollador\",\n          descriptionLink:\"https://images.google.com\",\n          recruiter:{\n            fieldName:\"\",\n            selected:2,\n            options:this.recruiters\n          },\n          status:\"Activo\",\n          recruiterStatus:{\n            fieldName: \"\",\n            selected: 2,\n            options: this.statusOptions\n          },\n          comments:\"lorem ipsum dolor sit amet consectetur adipisicing elit.\"\n      }\n    ];\n\n    this.vacancyCols = [\n      {\n        id:1,\n        columnName:\"ticketNumber\",\n        columnLabel:\"# de Ticket\",\n        value:\"ascendant\"\n      },\n      {\n        id:2,\n        columnName:\"vacantName\",\n        columnLabel:\"Vacante\",\n        value:\"ascendant\"\n      },\n      {\n        id:3,\n        columnName:\"descriptionLink\",\n        columnLabel: \"Descripcion\",\n        value:\"ascendant\"\n      },\n      {\n        id:4,\n        columnName:\"recruiter\",\n        columnLabel:\"Reclutador\",\n        value:\"ascendant\"\n      },\n      {\n        id:5,\n        columnName:\"status\",\n        columnLabel:\"Estado\",\n        value:\"ascendant\"\n      },\n      {\n        id:6,\n        columnName:\"recruiterStatus\",\n        columnLabel:\"Estado del Reclutador\",\n        value:\"ascendant\"\n      },\n      {\n        id:7,\n        columnName:\"comments\",\n        columnLabel:\"Comentarios\",\n        value:\"ascendant\"\n      }\n    ];\n  }\n}\n",
             "styleUrl": "./vacancies-view.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 26
+            },
             "extends": [],
-            "templateData": "<div class=\"container\">\n  <app-searchbox [inputLabel]=\"'Buscar'\" [searchText]=\"''\"></app-searchbox>\n  <app-datepicker></app-datepicker>\n  <app-datepicker></app-datepicker>\n  <app-dropdown></app-dropdown>\n  <app-dropdown></app-dropdown>\n</div>\n<div class=\"container\">\n  <app-table></app-table>\n</div>\n"
+            "templateData": "<div class=\"container\">\n  <app-searchbox [inputLabel]=\"'Buscar'\" [searchText]=\"''\"></app-searchbox>\n  <app-datepicker [inputLabel]=\"'Fecha Inicio'\"></app-datepicker>\n  <app-datepicker [inputLabel]=\"'Fecha Fin'\"></app-datepicker>\n  <app-dropdown [inputLabel]=\"'Estatus'\" [options]=\"statusOptions\"></app-dropdown>\n  <app-dropdown [inputLabel]=\"'Cliente'\" [options]=\"clientOptions\"></app-dropdown>\n</div>\n<div class=\"container\">\n  <app-table\n    [rows]=\"vacancies\"\n    [rowComponent]=\"vacancyRow\"\n    [columns]=\"vacancyCols\"\n    [customTds]=\"tdComponents\">\n  </app-table>\n</div>\n"
         }
     ],
     "modules": [],
@@ -850,7 +1169,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -887,7 +1206,7 @@
                 "linktype": "component",
                 "name": "DatepickerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -896,7 +1215,7 @@
                 "linktype": "component",
                 "name": "Dropdown",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -906,6 +1225,15 @@
                 "name": "SearchBox",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/table/custom-td/custom-td.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CustomTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -921,9 +1249,45 @@
                 "filePath": "src/app/interfaces/IVacantRow.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "IVacantRow",
+                "name": "IVacant",
                 "coveragePercent": 0,
                 "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/badge-td/badge-td.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BadgeTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/drop-down-td/drop-down-td.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DropDownTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/icon-link-td/icon-link-td.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconLinkTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/textTd/textTd.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TextTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -932,7 +1296,7 @@
                 "linktype": "component",
                 "name": "VacanciesView",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

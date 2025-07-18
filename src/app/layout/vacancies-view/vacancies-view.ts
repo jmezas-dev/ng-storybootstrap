@@ -8,6 +8,7 @@ import {TextTd} from './textTd/textTd';
 import {IconLinkTd} from './icon-link-td/icon-link-td';
 import {DropDownTd} from './drop-down-td/drop-down-td';
 import {BadgeTd} from './badge-td/badge-td';
+import {SelectTd} from './select-td/select-td';
 
 @Component({
   selector: 'app-vacancies-view',
@@ -30,9 +31,9 @@ export class VacanciesView {
       TextTd,
       TextTd,
       IconLinkTd,
-      DropDownTd,
+      SelectTd,
       BadgeTd,
-      DropDownTd,
+      SelectTd,
       TextTd
     ];
 
@@ -49,23 +50,23 @@ export class VacanciesView {
 
     this.clientOptions = [
       {
-        value: "1",
+        value: 1,
         label: "Beatriz Pinzon"
       },
       {
-        value: "2",
+        value: 2,
         label: "Nicolas Mora"
       },
       {
-        value: "3",
+        value: 3,
         label: "Hugo Lombardi"
       },
       {
-        value: "4",
+        value: 4,
         label: "Marcela Valencia"
       },
       {
-        value: "5",
+        value: 5,
         label: "Mario Calderon"
       }
     ];
