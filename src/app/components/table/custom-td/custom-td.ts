@@ -1,4 +1,4 @@
-import {Component,Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgComponentOutlet} from '@angular/common';
 
 @Component({
@@ -13,4 +13,5 @@ import {NgComponentOutlet} from '@angular/common';
 export class CustomTd {
   @Input() template : any = null;
   @Input() attributes : any = {};
+  @Output() performUpdate = new EventEmitter<any>();
 }

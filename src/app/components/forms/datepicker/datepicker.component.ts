@@ -1,4 +1,4 @@
-import {Component,Input,Output,EventEmitter} from '@angular/core';
+import {Component,Input} from '@angular/core';
 
 @Component({
   selector: 'app-datepicker',
@@ -10,8 +10,9 @@ import {Component,Input,Output,EventEmitter} from '@angular/core';
 export default class DatepickerComponent {
   @Input() inputLabel : string = '';
   @Input() date: any;
-  @Output() dateChange = new EventEmitter<string>();
+  @Input() logic:any;
 
-  constructor() {
+  onDateChange(event: any) {
+    this.logic.PerformDataOperation('update', event.target.value)
   }
 }

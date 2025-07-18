@@ -1,5 +1,5 @@
 <div class="form-floating">
-  <select class="form-select"  aria-label="Floating label select example">
+  <select class="form-select"  aria-label="Floating label select example" (change)="optionChange($event)">
     @for (option of options; track option.value) {
       @if (option.value === selectedOption){
         <option value="{{option.value}}" selected>{{option.label}} </option>

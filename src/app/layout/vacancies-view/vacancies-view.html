@@ -1,15 +1,16 @@
 <div class="container">
-  <app-searchbox [inputLabel]="'Buscar'" [searchText]="''"></app-searchbox>
-  <app-datepicker [inputLabel]="'Fecha Inicio'"></app-datepicker>
-  <app-datepicker [inputLabel]="'Fecha Fin'"></app-datepicker>
-  <app-dropdown [inputLabel]="'Estatus'" [options]="statusOptions"></app-dropdown>
-  <app-dropdown [inputLabel]="'Cliente'" [options]="clientOptions"></app-dropdown>
+  <app-searchbox [inputLabel]="'Buscar'" [logic]="vacancyLogic"></app-searchbox>
+  <app-datepicker [inputLabel]="'Fecha Inicio'" [logic]="vacancyLogic"></app-datepicker>
+  <app-datepicker [inputLabel]="'Fecha Fin'" [logic]="vacancyLogic"></app-datepicker>
+  <app-dropdown [inputLabel]="'Estatus'" [options]="statusOptions" [logic]="vacancyLogic"></app-dropdown>
+  <app-dropdown [inputLabel]="'Cliente'" [options]="clientOptions" [logic]="vacancyLogic"></app-dropdown>
 </div>
 <div class="container">
   <app-table
     [rows]="vacancies"
     [rowComponent]="vacancyRow"
     [columns]="vacancyCols"
-    [customTds]="tdComponents">
+    [customTds]="tdComponents"
+  >
   </app-table>
 </div>

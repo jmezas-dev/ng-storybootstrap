@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -9,4 +9,9 @@ import {Component, Input} from '@angular/core';
 export class Select {
   @Input() options: any[] = [];
   @Input() selectedOption: any;
+  @Input() actions: any;
+
+  optionChange() {
+      this.actions.PerformDataOperation('update', this.selectedOption)
+  }
 }

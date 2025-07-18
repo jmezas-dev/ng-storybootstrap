@@ -1,4 +1,4 @@
-import {Component, Input,Output, EventEmitter} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -11,6 +11,9 @@ export class Dropdown {
   @Input() options: any[] = [];
   @Input() selectedOption: any;
 
-  @Input() searchText: any;
-  @Output() searchTextChange = new EventEmitter<string>();
+  @Input() logic: any;
+
+  optionChange(event: any) {
+    this.logic.PerformDataOperation('update', event.target.value)
+  }
 }

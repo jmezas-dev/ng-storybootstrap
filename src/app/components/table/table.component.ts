@@ -17,10 +17,7 @@ export default class TableComponent {
   @Input() rows : any[] = [];
   @Input() columns : any[] = [];
   @Input() rowComponent : any = null;
-  @Input() customTds : any[] = []
-
-  constructor() {
-  }
+  @Input() customTds : any[] = [];
 
   updateFilterOrder(event:MouseEvent, filterObject:any) {
     //TODO: Implement a service to update the table

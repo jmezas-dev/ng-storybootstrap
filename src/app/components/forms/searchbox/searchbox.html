@@ -3,7 +3,7 @@
     <span class="bi bi-search"></span>
   </span>
   <div class="form-floating">
-    <input type="text" class="form-control" id="floatingInputGroup1" [placeholder]="inputLabel">
+    <input type="text" class="form-control" id="floatingInputGroup1" [placeholder]="inputLabel" (change)="onInputChange($event)">
     <label for="floatingInputGroup1">{{inputLabel}}</label>
   </div>
 </div>

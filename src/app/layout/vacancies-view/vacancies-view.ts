@@ -6,9 +6,9 @@ import TableComponent from '../../components/table/table.component';
 import {IVacant} from '../../interfaces/IVacantRow';
 import {TextTd} from './textTd/textTd';
 import {IconLinkTd} from './icon-link-td/icon-link-td';
-import {DropDownTd} from './drop-down-td/drop-down-td';
 import {BadgeTd} from './badge-td/badge-td';
 import {SelectTd} from './select-td/select-td';
+import VacancyLogic from './logic/VacancyLogic';
 
 @Component({
   selector: 'app-vacancies-view',
@@ -25,6 +25,8 @@ export class VacanciesView {
   public vacancyRow : any = null;
   public tdComponents : any = [];
   public recruiters : any[];
+
+  public vacancyLogic = new VacancyLogic();
 
   constructor() {
     this.tdComponents = [
@@ -91,13 +93,15 @@ export class VacanciesView {
           recruiter:{
             fieldName:"",
             selected:1,
-            options:this.recruiters
+            options:this.recruiters,
+            actions:this.vacancyLogic
           },
           status:"Activo",
           recruiterStatus:{
             fieldName:"",
             selected:1,
-            options:this.statusOptions
+            options:this.statusOptions,
+            actions:this.vacancyLogic
           },
           comments:"lorem ipsum dolor sit amet consectetur adipisicing elit."
       },
@@ -109,13 +113,15 @@ export class VacanciesView {
           recruiter:{
             fieldName:"",
             selected:2,
-            options:this.recruiters
+            options:this.recruiters,
+            actions: this.vacancyLogic
           },
           status:"Activo",
           recruiterStatus:{
             fieldName: "",
             selected: 2,
-            options: this.statusOptions
+            options: this.statusOptions,
+            actions: this.vacancyLogic
           },
           comments:"lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
