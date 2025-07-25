@@ -1,0 +1,17 @@
+services:
+  front :
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: front
+    healthcheck:
+      test: curl -s https://localhost:80 >/dev/null; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+      interval: 1m
+      timeout: 5s
+      retries: 3
+    ports:
+      - '81:80'
+    networks:
+      - default
+networks:
+  default:
