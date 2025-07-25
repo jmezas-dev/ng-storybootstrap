@@ -30,7 +30,9 @@ pipeline {
                 sh "npm install"
                 echo "testing the application"
                 sh 'export CHROME_BIN=/usr/bin/google-chrome'
-                sh 'npm run test --no-watch --browsers=ChromeHeadless'
+                sh 'groupadd -r chrome && useradd -r -g chrome -G audio,video chrome'
+                sh 'mkdir -p /home/chrome && chown -R chrome:chrome /home/chrome'
+                su chrome -c "npm run test -- --no-watch --browsers=ChromeHeadless"
             }
         }
         stage("build") {
