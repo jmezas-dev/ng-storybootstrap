@@ -30,7 +30,7 @@ pipeline {
                 sh "npm install"
                 echo "testing the application"
                 sh 'export CHROME_BIN=/usr/bin/google-chrome'
-                sh "npm run test -- --no-watch --browsers=ChromeHeadlessCI"
+                sh "npm run test"
 
             }
         }
