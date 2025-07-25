@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomVacancyTd } from './custom-td';
+import CustomTd from './custom-td';
 
 describe('CustomVacancyTd', () => {
-  let component: CustomVacancyTd;
-  let fixture: ComponentFixture<CustomVacancyTd>;
+  let component: CustomTd;
+  let fixture: ComponentFixture<CustomTd>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomVacancyTd]
+      imports: [CustomTd]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CustomVacancyTd);
+    fixture = TestBed.createComponent(CustomTd);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

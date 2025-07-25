@@ -10,7 +10,7 @@ import {NgComponentOutlet} from '@angular/common';
   styleUrl: './custom-td.scss'
 })
 
-export class CustomTd {
+export default class CustomTd {
   @Input() template : any = null;
   @Input() attributes : any = {};
   @Output() performUpdate = new EventEmitter<any>();

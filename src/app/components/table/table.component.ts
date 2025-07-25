@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NgComponentOutlet} from '@angular/common';
-import {CustomTd} from './custom-td/custom-td';
+import CustomTd from './custom-td/custom-td';
 
 @Component({
   selector: 'app-table',
