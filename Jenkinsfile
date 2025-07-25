@@ -27,6 +27,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'npm install -g @angular/cli'
                 echo "testing the application"
                 sh 'export CHROME_BIN=/usr/bin/google-chrome'
                 sh 'npm run test --no-watch --browsers=ChromeHeadless'
