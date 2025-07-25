@@ -28,7 +28,8 @@ pipeline {
             }
             steps {
                 echo "testing the application"
-                sh 'export CHROME_BIN=/usr/bin/google-chrome npm run test -- --no-watch --browsers=ChromeHeadless'
+                sh 'export CHROME_BIN=/usr/bin/google-chrome'
+                sh 'npm run test --no-watch --browsers=ChromeHeadless'
             }
         }
         stage("build") {
