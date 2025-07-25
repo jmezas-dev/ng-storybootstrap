@@ -16,7 +16,6 @@ pipeline {
         stage("Checkout Github"){
             steps {
                 git credentialsId: 'gh-credential', url: 'https://github.com/jmezas-dev/ng-storybootstrap.git'
-                sh "npm install"
             }
         }
         stage("test") {
@@ -28,6 +27,7 @@ pipeline {
             }
             steps {
                 sh 'npm install -g @angular/cli'
+                sh "npm install"
                 echo "testing the application"
                 sh 'export CHROME_BIN=/usr/bin/google-chrome'
                 sh 'npm run test --no-watch --browsers=ChromeHeadless'
