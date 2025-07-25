@@ -16,6 +16,7 @@ pipeline {
         stage("Checkout Github"){
             steps {
                 git credentialsId: 'gh-credential', url: 'https://github.com/jmezas-dev/ng-storybootstrap.git'
+                sh "npm install"
             }
         }
         stage("test") {
