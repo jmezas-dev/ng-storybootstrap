@@ -1,6 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {Select} from '../../../components/forms/select/select';
 
+interface SelectedTdAttributes {
+  options: Array<{value:string, label:string}>;
+}
+
 @Component({
   selector: 'app-select-td',
   imports: [
@@ -10,5 +14,5 @@ import {Select} from '../../../components/forms/select/select';
   styleUrl: './select-td.scss'
 })
 export class SelectTd {
-  @Input() attributes:any = {};
+  @Input() attributes: SelectedTdAttributes = { options: [] };
 }
