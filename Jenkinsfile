@@ -26,7 +26,7 @@ pipeline {
                 }
             }
             steps {
-                sh "docker build --target test . -t jmezas/atstest ."
+                sh "docker build --target test -t jmezas/atstest ."
                 sh "docker run -it jmezas/atstest"
             }
         }
