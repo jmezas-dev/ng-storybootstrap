@@ -15,7 +15,7 @@ RUN npm install -g @angular/cli
 
 RUN npm install
 
-ENTRYPOINT ["npm","run","test", "--", "--no-watch", "--code-coverage"]
+ENTRYPOINT ["npm","run","test","--","--no-watch","--code-coverage"]
 
 FROM node:24-alpine3.22 AS build
 
