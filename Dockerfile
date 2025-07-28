@@ -11,8 +11,6 @@ RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
 
 COPY . .
 
-RUN npm install -g @angular/cli
-
 RUN npm install
 
 ENTRYPOINT ["npm","run","test","--","--no-watch","--code-coverage"]
