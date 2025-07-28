@@ -35,6 +35,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     singleRun: false,
-    restartOnFileChange: false
+    restartOnFileChange: false,
+    watch:false
   });
 };
