@@ -26,19 +26,15 @@ pipeline {
                 }
             }
             steps {
-                sh 'npm install -g @angular/cli'
-                sh "npm install"
-                echo "testing the application"
-                sh 'export CHROME_BIN=/usr/bin/google-chrome'
-                sh "npm run test"
-
+                sh "docker build --target test . -t jmezas/atstest ."
+                sh "docker run -it jmezas/atstest"
             }
         }
         stage("build") {
             agent any
             steps {
                 echo "building the application v${NEW_VERSION}"
-                sh "docker build -t ${REGISTRY}:${NEW_VERSION} ."
+                sh "docker build --target build -t ${REGISTRY}:${NEW_VERSION} ."
             }
         }
         stage("deploy") {

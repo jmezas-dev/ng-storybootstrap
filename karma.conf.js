@@ -9,12 +9,6 @@ module.exports = function(config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-    client: {
-      jasmine: {
-        // you can add special configurations here if needed
-      },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
@@ -24,9 +18,9 @@ module.exports = function(config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
-      ChromeHeadlessCI: {
+      ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
         flags: [
           '--no-sandbox',
@@ -40,8 +34,7 @@ module.exports = function(config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: false
   });
 };

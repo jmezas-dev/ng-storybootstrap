@@ -97,6 +97,31 @@
             "extends": []
         },
         {
+            "name": "SelectedTdAttributes",
+            "id": "interface-SelectedTdAttributes-11f2750c479facc709d0f72d5aacd16dae8f8fd24981ce262375862f0a22ede0e74ef8a62d1a90eb40d7dfab802c19b8529529f3f0396d1fee5974191d691433",
+            "file": "src/app/layout/vacancies-view/select-td/select-td.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {Select} from '../../../components/forms/select/select';\n\ninterface SelectedTdAttributes {\n  options: Array<{value:string, label:string}>;\n}\n\n@Component({\n  selector: 'app-select-td',\n  imports: [\n    Select\n  ],\n  templateUrl: './select-td.html',\n  styleUrl: './select-td.scss'\n})\nexport class SelectTd {\n  @Input() attributes: SelectedTdAttributes = { options: [] };\n}\n",
+            "properties": [
+                {
+                    "name": "options",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<literal type>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "src/stories/user.ts",
@@ -441,7 +466,7 @@
         },
         {
             "name": "CustomTd",
-            "id": "component-CustomTd-55b606afaa9c58b71dadcc60a087075baad05c9e8414bab88ba661d32dbd14d6781e497f5b3db86c54ee67345afcc2fec7c6421e695123e4544cac15e8c0ec81",
+            "id": "component-CustomTd-5d584e0e4d71c4218554916573c1d7517c0356496fa5aafba06aad89c14bc82a70e4a448e11a4f485abb09786e4161c2e4008cf916945464bd4a2d5c164a8336",
             "file": "src/app/components/table/custom-td/custom-td.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -502,7 +527,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\nimport {NgComponentOutlet} from '@angular/common';\n\n@Component({\n  selector: 'app-custom-td',\n  templateUrl: './custom-td.html',\n  imports: [\n    NgComponentOutlet\n  ],\n  styleUrl: './custom-td.scss'\n})\n\nexport class CustomTd {\n  @Input() template : any = null;\n  @Input() attributes : any = {};\n  @Output() performUpdate = new EventEmitter<any>();\n}\n",
+            "sourceCode": "import {Component, EventEmitter, Input, Output} from '@angular/core';\nimport {NgComponentOutlet} from '@angular/common';\n\n@Component({\n  selector: 'app-custom-td',\n  templateUrl: './custom-td.html',\n  imports: [\n    NgComponentOutlet\n  ],\n  styleUrl: './custom-td.scss'\n})\n\nexport default class CustomTd {\n  @Input() template : any = null;\n  @Input() attributes : any = {};\n  @Output() performUpdate = new EventEmitter<any>();\n}\n",
             "styleUrl": "./custom-td.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -994,7 +1019,7 @@
         },
         {
             "name": "SelectTd",
-            "id": "component-SelectTd-6a02acc5920a55d753ce3ce20d138c3e4118825e397c8cb59cedb17d3438a8c1b2b6088d606eabaadb15c7a1b8c379f1209f4aa4d09cadaf789a6f39f3fec202",
+            "id": "component-SelectTd-11f2750c479facc709d0f72d5aacd16dae8f8fd24981ce262375862f0a22ede0e74ef8a62d1a90eb40d7dfab802c19b8529529f3f0396d1fee5974191d691433",
             "file": "src/app/layout/vacancies-view/select-td/select-td.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1012,11 +1037,11 @@
             "inputsClass": [
                 {
                     "name": "attributes",
-                    "defaultValue": "{}",
+                    "defaultValue": "{ options: [] }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
-                    "type": "any",
+                    "line": 17,
+                    "type": "SelectedTdAttributes",
                     "decorators": []
                 }
             ],
@@ -1036,7 +1061,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {Select} from '../../../components/forms/select/select';\n\n@Component({\n  selector: 'app-select-td',\n  imports: [\n    Select\n  ],\n  templateUrl: './select-td.html',\n  styleUrl: './select-td.scss'\n})\nexport class SelectTd {\n  @Input() attributes:any = {};\n}\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {Select} from '../../../components/forms/select/select';\n\ninterface SelectedTdAttributes {\n  options: Array<{value:string, label:string}>;\n}\n\n@Component({\n  selector: 'app-select-td',\n  imports: [\n    Select\n  ],\n  templateUrl: './select-td.html',\n  styleUrl: './select-td.scss'\n})\nexport class SelectTd {\n  @Input() attributes: SelectedTdAttributes = { options: [] };\n}\n",
             "styleUrl": "./select-td.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1046,7 +1071,7 @@
         },
         {
             "name": "TableComponent",
-            "id": "component-TableComponent-093904ab72aeacf6d373b045d3f103f42350841c875f6c690c7dd9ad5708bb64da19ea086d4ef31f160a8ea92951a160d5824d85a377e22236dadb5cd6a7e66d",
+            "id": "component-TableComponent-050f99c3c9d64c374f1d44b668ebe6839167ba7538b9f30242016d69442215050fd3cdf34386ae0bfa9b5a780a916b7ce9c2217608b7ff15c5d877660c85adb4",
             "file": "src/app/components/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1069,7 +1094,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 17,
                     "type": "any[]",
                     "decorators": []
                 },
@@ -1078,7 +1103,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 19,
                     "type": "any[]",
                     "decorators": []
                 },
@@ -1087,7 +1112,7 @@
                     "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 18,
                     "type": "any",
                     "decorators": []
                 },
@@ -1096,7 +1121,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 16,
                     "type": "any[]",
                     "decorators": []
                 }
@@ -1123,7 +1148,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1164,7 +1189,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\r\nimport {NgComponentOutlet} from '@angular/common';\r\nimport {CustomTd} from './custom-td/custom-td';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  standalone: true,\r\n  templateUrl:'./table.html',\r\n  imports: [\r\n    CustomTd,\r\n    CustomTd\r\n  ],\r\n  styleUrls: ['./table.css']\r\n})\r\n\r\nexport default class TableComponent {\r\n  @Input() rows : any[] = [];\r\n  @Input() columns : any[] = [];\r\n  @Input() rowComponent : any = null;\r\n  @Input() customTds : any[] = [];\r\n\r\n  updateFilterOrder(event:MouseEvent, filterObject:any) {\r\n    //TODO: Implement a service to update the table\r\n\r\n    let item = event.currentTarget as HTMLElement;\r\n\r\n    let updatedFilter = filterObject;\r\n\r\n    updatedFilter.value = updatedFilter.value === \"ascendant\" ? \"descendant\" : \"ascendant\";\r\n\r\n    if(item.classList.contains(\"bi-arrow-up\")){\r\n      item.classList.remove(\"bi-arrow-up\");\r\n      item.classList.add(\"bi-arrow-down\");\r\n    } else {\r\n      item.classList.remove(\"bi-arrow-down\");\r\n      item.classList.add(\"bi-arrow-up\");\r\n    }\r\n  }\r\n}\r\n\r\n/* HELP!\r\n*  I was kidnapped and the boss is forcing me\r\n*  to use angular and bootstrap 💀 */\r\n",
+            "sourceCode": "import {Component, Input} from '@angular/core';\r\nimport CustomTd from './custom-td/custom-td';\r\n\r\n@Component({\r\n  selector: 'app-table',\r\n  standalone: true,\r\n  templateUrl:'./table.html',\r\n  imports: [\r\n    CustomTd,\r\n    CustomTd\r\n  ],\r\n  styleUrls: ['./table.css']\r\n})\r\n\r\nexport default class TableComponent {\r\n  @Input() rows : any[] = [];\r\n  @Input() columns : any[] = [];\r\n  @Input() rowComponent : any = null;\r\n  @Input() customTds : any[] = [];\r\n\r\n  updateFilterOrder(event:MouseEvent, filterObject:any) {\r\n    //TODO: Implement a service to update the table\r\n\r\n    let item = event.currentTarget as HTMLElement;\r\n\r\n    let updatedFilter = filterObject;\r\n\r\n    updatedFilter.value = updatedFilter.value === \"ascendant\" ? \"descendant\" : \"ascendant\";\r\n\r\n    if(item.classList.contains(\"bi-arrow-up\")){\r\n      item.classList.remove(\"bi-arrow-up\");\r\n      item.classList.add(\"bi-arrow-down\");\r\n    } else {\r\n      item.classList.remove(\"bi-arrow-down\");\r\n      item.classList.add(\"bi-arrow-up\");\r\n    }\r\n  }\r\n}\r\n\r\n/* HELP!\r\n*  I was kidnapped and the boss is forcing me\r\n*  to use angular and bootstrap 💀 */\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1571,6 +1596,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "SelectTd",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/layout/vacancies-view/select-td/select-td.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "SelectedTdAttributes",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
