@@ -26,8 +26,8 @@ pipeline {
                 }
             }
             steps {
-                sh "docker build --target test -t jmezas/atstest ."
-                sh "docker run jmezas/atstest"
+                sh "npm install"
+                sh "npm test -- --no-watch --code-coverage"
             }
         }
         stage("build") {
